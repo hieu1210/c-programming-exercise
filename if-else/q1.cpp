@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+// add commment
+
 bool isEven(int number){
     return (number % 2 == 0) ? true : false;
 }
