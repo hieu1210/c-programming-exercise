@@ -68,35 +68,64 @@ void PrintMaxofSixAndVariableName(int num1, int num2, int num3, int num4, int nu
     int Max1 = FindMaxBetweenThreeNumbers(num1, num2, num3);
     int Max2 = FindMaxBetweenThreeNumbers(num4, num5, num6);
     int Max = (Max1 > Max2) ? Max1 : Max2;
-    
+    cout << "Max is: " << Max << " and the variable is ";
+
     if (Max == num1){
-        cout << "Max is: " << Max << " and variable name is 'num1'" << endl;
+        cout << "'num1'" << endl;
     }
-    
-    if (Max == num2)
+    else if (Max == num2)
     {
-        cout << "Max is: " << Max << " and variable name is 'num2'" << endl;
+        cout << "'num2'" << endl;
+    }
+    else if (Max == num3)
+    {
+        cout << "'num3'" << endl;
+    }
+    else if (Max == num4)
+    {
+        cout << "'num4'" << endl;
+    }
+    else if (Max == num5)
+    {
+        cout << "'num5'" << endl;
+    }
+    else
+    {
+        cout << "'num6'" << endl;
+    }
+}
+
+void FindSecondLargestBetweenSixNumbers(int num1, int num2, int num3, int num4, int num5, int num6){
+    int MaxThreeNumbers1 = FindMaxBetweenThreeNumbers(num1, num2, num3);
+    int MaxThreeNumbers2 = FindMaxBetweenThreeNumbers(num4, num5, num6);
+    int Max1 = (MaxThreeNumbers1 > MaxThreeNumbers2) ? MaxThreeNumbers1 : MaxThreeNumbers2;
+
+    int MinThreeNumbers1 = FindMinBetweenThreeNumbers(num1, num2, num3);
+    int MinThreeNumbers2 = FindMinBetweenThreeNumbers(num4, num5, num6);
+    int Min1 = (MinThreeNumbers1 < MinThreeNumbers2) ? MinThreeNumbers1 : MinThreeNumbers2;
+
+    int Max2 = Min1;
+
+    if ((num1 > Max2) && (num1 < Max1)){
+        Max2 = num1;
+    }
+    if ((num2 > Max2) && (num2 < Max1)){
+        Max2 = num2;
+    }
+    if ((num3 > Max2) && (num3 < Max1)){
+        Max2 = num3;
+    }
+    if ((num4 > Max2) && (num4 < Max1)){
+        Max2 = num4;
+    }
+    if ((num5 > Max2) && (num5 < Max1)){
+        Max2 = num5;
+    }
+    if ((num6 > Max2) && (num6 < Max1)){
+        Max2 = num6;
     }
 
-    if (Max == num3)
-    {
-        cout << "Max is: " << Max << " and variable name is 'num3'" << endl;
-    }
-
-    if (Max == num4)
-    {
-        cout << "Max is: " << Max << " and variable name is 'num4'" << endl;
-    }
-
-    if (Max == num5)
-    {
-        cout << "Max is: " << Max << " and variable name is 'num5'" << endl;
-    }
-
-    if (Max == num6)
-    {
-        cout << "Max is: " << Max << " and variable name is 'num6'" << endl;
-    }
+    cout << "The second largest number is: " << Max2 << endl;
 }
 
 int main() {
@@ -122,31 +151,20 @@ int main() {
     cin >> num6;
 
     // Question 6 Part a
-    /* PrintMaxofThreeAndVariableName(num1, num2, num3)
-    int sum = num1+num2+num3;
+    // PrintMaxofThreeAndVariableName(num1, num2, num3)
+
+    // Question 6 Part b
+    /* int sum = num1+num2+num3;
     int max = FindMaxBetweenThreeNumbers(num1, num2, num3);
     int min = FindMinBetweenThreeNumbers(num1, num2, num3);
     int secondLargest = sum-max-min;
     cout << "The second largest number is: " << secondLargest << endl; */
 
-    // Find max between 6 number
-    // int Max1 = FindMaxBetweenThreeNumbers(num1, num2, num3);
-    // int Max2 = FindMaxBetweenThreeNumbers(num4, num5, num6);
-    // int Max = (Max1 > Max2) ? Max1 : Max2;
-    // printf("\nMax = %d", Max);
-    PrintMaxofSixAndVariableName(num1, num2, num3, num4, num5, num6);
-
-    
-	
-	// Find the second largest of six number
-    // num1 = 10, num2 = 1, num3 = 9, num4 = 7, num5 = 5, num6 = 1;
-    // 1. max1 = 10
-    // 2. min = 1
-    // 3. max2 = min
-    // 4. check every number > max2 && < max1
-    // 5. if (number > max2 && number < max1) => max2 = number
-    // 
-
+    // Question 6 Part c
+    // Find max and variable for 6 numbers
+    // PrintMaxofSixAndVariableName(num1, num2, num3, num4, num5, num6);
+    // Find second largest of 6 numbers
+    FindSecondLargestBetweenSixNumbers(num1, num2, num3, num4, num5, num6);
 
     return 0;
 }
