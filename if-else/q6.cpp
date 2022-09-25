@@ -185,12 +185,22 @@ int main() {
     // int min = FindMinBetweenThreeNumbers(num1, num2, num3);
 
 
-    PrintMaxofSixAndVariableName(num1, num2, num3, num4, num5, num6);
+    // PrintMaxofSixAndVariableName(num1, num2, num3, num4, num5, num6);
 
     // cout << "Sum: " << sum << "; Max: " << max << "; Min: " << min << endl;
 
     // int secondLargest = sum-max-min;
     // cout << "The second largest number is: " << secondLargest << endl;
+	
+	// Find the second largest of six number
+    // num1 = 10, num2 = 1, num3 = 9, num4 = 7, num5 = 5, num6 = 1;
+    // 1. max1 = 10
+    // 2. min = 1
+    // 3. max2 = min
+    // 4. check every number > max2 && < max1
+    // 5. if (number > max2 && number < max1) => max2 = number
+    // 
+
 
     return 0;
 }
