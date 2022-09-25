@@ -174,9 +174,16 @@ int main() {
     cout << "Please enter the sixth number: ";
     cin >> num6;
 
+    // Find max between 6 number
+    /*int Max1 = FindMaxBetweenThreeNumbers(num1, num2, num3);
+    int Max2 = FindMaxBetweenThreeNumbers(num4, num5, num6);
+    int Max = (Max1 > Max2) ? Max1 : Max2;
+    printf("\nMax = %d", Max);*/
+
     // int sum = num1+num2+num3;
     // int max = FindMaxBetweenThreeNumbers(num1, num2, num3);
     // int min = FindMinBetweenThreeNumbers(num1, num2, num3);
+
 
     PrintMaxofSixAndVariableName(num1, num2, num3, num4, num5, num6);
 
