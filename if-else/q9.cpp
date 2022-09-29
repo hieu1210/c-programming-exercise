@@ -2,40 +2,38 @@
 #include <cmath>
 using namespace std;
 
-bool checkingValidTriangle(int side_a, int side_b, int side_c){
-    if ((side_a + side_b > side_c) & (side_c + side_b > side_a) & (side_a + side_c > side_b)){
+bool isValidTriangle(int side_a, int side_b, int side_c) {
+    if ((side_a + side_b > side_c) && (side_c + side_b > side_a) && (side_a + side_c > side_b)) {
         return true;
     }
-    else{
-        return false;
-    }
+    return false;
 };
 
-void PerimeterTriangle(int side_a, int side_b, int side_c){
+int PerimeterTriangle(int side_a, int side_b, int side_c) {
     int perimeter = side_a + side_b + side_c;
-    cout << "Perimeter is " << perimeter << endl;
+    return perimeter;
 };
 
-void AreaTriangle(int side_a, int side_b, int side_c){
-    int perimeter_a = (side_a + side_b + side_c) / 2;
-
-    int area = sqrt(perimeter_a * (perimeter_a - side_a) * (perimeter_a - side_b) * (perimeter_a - side_c));
-    cout << "Area is " << area << endl;
+float AreaTriangle(int side_a, int side_b, int side_c) {
+    float perimeter = PerimeterTriangle(side_a, side_b, side_c) / 2.0;
+    float area = sqrt(perimeter * (perimeter - side_a) * (perimeter - side_b) * (perimeter - side_c));
+    return area;
 };
 
 int main() {
     int side_a, side_b, side_c;
+
     cout << "Please enter three sides of a triangle: ";
     cin >> side_a;
     cin >> side_b;
     cin >> side_c;
 
-    if (checkingValidTriangle(side_a, side_b, side_c)){
+    if (isValidTriangle(side_a, side_b, side_c)) {
         cout << "Valid Triangle." << endl;
-        PerimeterTriangle(side_a, side_b, side_c);
-        AreaTriangle(side_a, side_b, side_c);
+        cout << "Perimeter is " << PerimeterTriangle(side_a, side_b, side_c) << endl;
+        cout << "Area is " << AreaTriangle(side_a, side_b, side_c) << endl;
     }
-    else{
+    else {
         cout << "Invalid Triangle." << endl;
     }
 
