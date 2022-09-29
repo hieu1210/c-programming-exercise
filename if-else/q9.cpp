@@ -64,17 +64,19 @@ void TypeTriangle2(int side_a, int side_b, int side_c) {
 	}
 	else
 		if ((side_a == side_b) || (side_b == side_c) || (side_a == side_c)) {
-			cout << "It's an isosceles triangle." << endl;
+			isosceles = true;
+            cout << "It's an isosceles triangle." << endl;
 		}
 		else
 			if (((side_a * side_a + side_b * side_b) == side_c * side_c) //
 				|| ((side_c * side_c + side_b * side_b) == side_a * side_a) //
 				|| ((side_a * side_a + side_c * side_c) == side_b * side_b)) {
-				cout << "It's a right triangle." << endl;
+				right = true;
+                cout << "It's a right triangle." << endl;
 			}
 			else
 				if ((isosceles == true) && (right == true)) {
-					cout << "It's an isosceles triangle." << endl;
+					cout << "It's an isosceles right triangle." << endl;
 				}
 				else
 				{
