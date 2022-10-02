@@ -2,15 +2,7 @@
 #include <cmath>
 using namespace std;
 
-bool checkDate(int day, int month, int year) {
-    if (!(year >= 1900)) {
-        return false;
-    }
-
-    if (!(month >= 1 && month <= 12)){
-        return false;
-    }
-
+int daysofMonth(int month, int year){
     int MaxDay = 0;
     switch (month)
     {
@@ -29,6 +21,20 @@ bool checkDate(int day, int month, int year) {
             MaxDay = 28;
         }
     }
+    return MaxDay;
+}
+
+bool checkDate(int day, int month, int year) {
+    if (!(year >= 1900)) {
+        return false;
+    }
+
+    if (!(month >= 1 && month <= 12)){
+        return false;
+    }
+
+    int MaxDay = daysofMonth(month, year);
+    
 
     if (!(day >= 1 && day <= MaxDay)) {
         return false;
@@ -55,33 +61,35 @@ bool checkDate(int day, int month, int year) {
     return false;*/
 }
 
-/* void PreviousTime(int hour, int minute, int second) {
-    second -= 1;
+void PreviousDay(int day, int month, int year) {
+    day -= 1;
 
-    if (second < 0) {
-        second = 59;
-        minute -= 1;
-        if (minute < 0) {
-            minute = 59;
-            hour -= 1;
+    if (day <= 0) {
+        month -= 1;
+        if (month <= 0) {
+            month = 12;
+            year -= 1;
         }
+        day = daysofMonth(month, year);
     }
-    printf("\nThe previous second is %d:%d:%d.", hour, minute, second);
+    printf("\nYesterday is %d/%d/%d.", day, month, year);
 }
 
-void NextTime(int hour, int minute, int second) {
-    second += 1;
+void NextDay(int day, int month, int year) {
+    int MaxDay = daysofMonth(month, year);
 
-    if (second >= 60) {
-        second = 0;
-        minute += 1;
-        if (minute >= 60) {
-            minute = 0;
-            hour += 1;
+    day += 1;
+
+    if (day > MaxDay) {
+        month += 1;
+        if (month > 12) {
+            month = 1;
+            year += 1;
         }
+        day = 1;
     }
-    printf("\nThe next second is %d:%d:%d.", hour, minute, second);
-} */
+    printf("\nTomorrow is %d/%d/%d.", day, month, year);
+}
 
 int main() {
     int day, month, year;
@@ -91,8 +99,8 @@ int main() {
 
     if (checkDate(day, month, year)) {
         printf("The date %d/%d/%d is valid.", day, month, year);
-        // PreviousTime(hour, minute, second);
-        // NextTime(hour, minute, second);
+        PreviousDay(day, month, year);
+        NextDay(day, month, year);
     }
     else {
         printf("The date %d/%d/%d is not valid.", day, month, year);
