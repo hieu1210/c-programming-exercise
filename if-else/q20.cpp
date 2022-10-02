@@ -24,6 +24,33 @@ int daysofMonth(int month, int year){
     return MaxDay;
 }
 
+void daysinYear(int day, int month, int year){
+    int total = 0;
+    if (month > 1) total += 31;
+    if (month > 2){
+        if ((year % 400 == 0) || ((year % 4 == 0) && (year % 400 != 0))) {
+            total += 29;
+        }
+        else
+        {
+            total += 28;
+        }
+    }
+    if (month > 3) total += 31;
+    if (month > 4) total += 30;
+    if (month > 5) total += 31;
+    if (month > 6) total += 30;
+    if (month > 7) total += 31;
+    if (month > 8) total += 31;
+    if (month > 9) total += 30;
+    if (month > 10) total += 31;
+    if (month > 11) total += 30;
+    if (month > 12) total += 31;
+    total += day;
+    printf("\nThe day number of date %d/%d/%d is %d", day, month, year, total);
+}
+
+
 bool checkDate(int day, int month, int year) {
     if (!(year >= 1900)) {
         return false;
@@ -101,6 +128,7 @@ int main() {
         printf("The date %d/%d/%d is valid.", day, month, year);
         PreviousDay(day, month, year);
         NextDay(day, month, year);
+        daysinYear(day, month, year);
     }
     else {
         printf("The date %d/%d/%d is not valid.", day, month, year);
