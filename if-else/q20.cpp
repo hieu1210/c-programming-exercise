@@ -3,23 +3,56 @@
 using namespace std;
 
 bool checkDate(int day, int month, int year) {
-    if (year >= 1900 && month >= 1 && month <= 12 && day >= 1){
-        if ((month == 4 || month == 6 || month == 9 || month == 11) & (day <= 30)){
+    if (!(year >= 1900)) {
+        return false;
+    }
+
+    if (!(month >= 1 && month <= 12)){
+        return false;
+    }
+
+    int MaxDay = 0;
+    switch (month)
+    {
+    case 1:case 3:case 5:case 7:case 8:case 10:case 12:
+        MaxDay = 31;
+        break;
+    case 4:case 6:case 9:case 11:
+        MaxDay = 30;
+        break;
+    case 2:
+        if ((year % 400 == 0) || ((year % 4 == 0) && (year % 400 != 0))) {
+            MaxDay = 29;
+        }
+        else
+        {
+            MaxDay = 28;
+        }
+    }
+
+    if (!(day >= 1 && day <= MaxDay)) {
+        return false;
+    }
+    return true;
+
+    /*if (year >= 1900 && month >= 1 && month <= 12 && day >= 1) {
+        if ((month == 4 || month == 6 || month == 9 || month == 11) & (day <= 30)) {
             return true;
         }
-        if ((month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) & (day <= 31)){
+        if ((month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) & (day <= 31)) {
             return true;
         }
-        if ((year % 400 == 0) || ((year % 4 == 0) && (year % 400 != 0))){
+        if ((year % 400 == 0) || ((year % 4 == 0) && (year % 400 != 0))) {
             cout << "This is a leap year." << endl;
-            if (month == 2 && day <= 29){
+            if (month == 2 && day <= 29) {
                 return true;
             }
-        }else if (month == 2 && day <= 28){
+        }
+        else if (month == 2 && day <= 28) {
             return true;
         }
     }
-    return false;
+    return false;*/
 }
 
 /* void PreviousTime(int hour, int minute, int second) {
