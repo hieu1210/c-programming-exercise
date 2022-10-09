@@ -10,7 +10,7 @@ bool isEven(int number){
 int main(){
     int number;
 
-    cout << "Please enter a number (number > 0): " << endl;
+    cout << "Please enter a number (number > 0): ";
     cin >> number;
 
     cout << "The number is: " << number << endl;
