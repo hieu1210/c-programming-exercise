@@ -68,19 +68,15 @@ void printOddNumbers(int n)
     int i = 1;
     while (i <= n)
     {
-        if (i % 2 == 1){
-            printf("%d; ", i);
-        }
-        i++;
+        printf("%d; ", i);
+        i += 2;
     }
 
     // for loop
     cout << "\n\nFor loop" << endl;
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i += 2)
     {
-        if (i % 2 == 1){
-            printf("%d; ", i);
-        }
+        printf("%d; ", i);
     }
 
     // do-while loop
@@ -88,10 +84,7 @@ void printOddNumbers(int n)
     i = 1;
     do
     {
-        if (i % 2 == 1){
-            printf("%d; ", i);
-        }
-        i++;
+        i += 2;
     } while (i <= n);
 }
 
@@ -139,40 +132,35 @@ void printSumEvenNumbers(int n)
     // while
     cout << "While loop" << endl;
     int sum = 0;
-    int i = 1;
+    int i = 2;
     while (i <= n)
     {
-        if (i % 2 == 0){
-            printf("%d; ", i);
-            sum += i;
-        }
-        i++;
+        printf("%d; ", i);
+        sum += i;
+        i += 2;
     }
     printf("\nSum: %d", sum);
 
     // for loop
     cout << "\n\nFor loop" << endl;
     sum = 0;
-    for (int i = 1; i <= n; i++)
+    for (int i = 2; i <= n; i += 2)
     {
-        if (i % 2 == 0){
-            printf("%d; ", i);
-            sum += i;
-        }
+        printf("%d; ", i);
+        sum += i;
     }
     printf("\nSum: %d", sum);
 
     // do-while loop
     cout << "\n\nDo-while loop" << endl;
     sum = 0;
-    i = 1;
+    i = 2;
     do
     {
-        if (i % 2 == 0){
-            printf("%d; ", i);
-            sum += i;
-        }
-        i++;
+        printf("%d; ", i);
+        sum += i;
+        i += 2;
+
     } while (i <= n);
     printf("\nSum: %d", sum);
 }
