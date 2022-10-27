@@ -67,7 +67,8 @@ int countDigits(int n)
 {
     int x = 0;
     int count = 0;
-    while(n>0){
+    while (n > 0)
+    {
         x = n % 10;
         count += 1;
         n /= 10;
@@ -75,22 +76,36 @@ int countDigits(int n)
     return count;
 }
 
-bool checkArmstrong(int n){
+bool checkArmstrong(int n)
+{
     int count = countDigits(n);
 
     int x = 0;
     int temp = n;
     int sum = 0;
-    while(temp>0){
+    while (temp > 0)
+    {
         x = temp % 10;
         sum += (pow(x, count));
         temp /= 10;
     }
 
     return (sum == n);
-
 }
 
+bool checkLucky(int n)
+{
+    while (n != 0)
+    {
+        int x = n % 10;
+        if (!(n == 6 || n == 8))
+        { // (n != 6) && (n != 8)
+            return false;
+        }
+        n /= 10;
+    }
+    return true;
+}
 
 int main()
 {
@@ -131,15 +146,25 @@ int main()
     // {
     //     printf("%d is not a friendly number", n);
     // }
-    
+
     // question 23e
-    if (checkArmstrong(n))
+    // if (checkArmstrong(n))
+    // {
+    //     printf("%d is an Armstrong number", n);
+    // }
+    // else
+    // {
+    //     printf("%d is not an Armstrong number", n);
+    // }
+
+    // question 23f
+    if (checkLucky(n))
     {
-        printf("%d is an Armstrong number", n);
+        printf("%d is a lucky number", n);
     }
     else
     {
-        printf("%d is not an Armstrong number", n);
+        printf("%d is not a lucky number", n);
     }
 
     return 0;
