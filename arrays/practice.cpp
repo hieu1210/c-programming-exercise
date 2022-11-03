@@ -4,7 +4,7 @@ using namespace std;
 
 const int MAX_SIZE = 100;
 
-void input_user(int &total)
+void input_user(int& total)
 {
     do
     {
@@ -26,7 +26,8 @@ void output_value_array(int array[MAX_SIZE], int total)
 {
     for (int i = 0; i < total; i++)
     {
-        cout << "Position " << i << ": " << array[i] << " \n";
+        // cout << "Position " << i << ": " << array[i] << " \n";
+        cout << array[i] << " \t";
     }
 }
 
@@ -34,8 +35,7 @@ void create_random_array(int array[MAX_SIZE], int total)
 {
     for (int i = 0; i < total; i++)
     {
-        array[i] = rand();
-        cout << "Position " << i << ": " << array[i] << " \n";
+        array[i] = rand() % 50 + 1;
     }
 }
 
@@ -57,10 +57,10 @@ int main()
     int array[MAX_SIZE], i, total;
 
     input_user(total);
-    // create_random_array(array, total);
-    input_value_array(array, total);
-    sum_of_even_array(array, total);
-    // output_value_array(array, total);
+    create_random_array(array, total);
+    // input_value_array(array, total);
+    // sum_of_even_array(array, total);
+    output_value_array(array, total);
 
     return 0;
 }
