@@ -32,15 +32,20 @@ void convertPrimeFactors(int n)
     for (int i = 1; i <= (n / 2 + 1); i++){
         if (checkPrime(i)){
             int count = 0;
+            int isPrint = 0;
             while(temp % i == 0){
                 count += 1;
+                temp /= i;
+                isPrint = 1;
+            }
+            if (isPrint == 1){
                 if (count > 1){
                     printf("%d^%d;", i, count);
                 }else{
                     printf("%d;", i);
                 }
-                temp /= i;
             }
+            if (temp == 1) break;
         }
     }
 }
