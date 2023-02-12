@@ -31,6 +31,7 @@ int main()
 			i++;
 		}
 
+		length_subarray = i - start;
 		printf("\n start = %d, end = %d", start, i);
 		i++;
 		start = i;
